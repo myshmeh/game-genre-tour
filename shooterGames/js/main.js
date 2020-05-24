@@ -1,9 +1,9 @@
 const config = {
-    width: 640,
-    height: 480,
-    backgroundColor: 0x333,
+    width: WIDTH,
+    height: HEIGHT,
+    backgroundColor: '#333',
     pixelArt: true,
-    scene: [],
+    scene: [ Preloader, GamePlay ],
     physics: {
         default: 'arcade',
         arcade: {
@@ -11,7 +11,10 @@ const config = {
             , debug: true,
         }
     },
-    autoCenter: Phaser.Scale.CENTER_BOTH,
+    scale: {
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH,
+    },
 };
 
 const game = new Phaser.Game(config);
