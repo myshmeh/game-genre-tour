@@ -3,7 +3,7 @@ const config = {
     height: HEIGHT,
     backgroundColor: '#333',
     pixelArt: true,
-    scene: [ Preloader, GamePlay ],
+    scene: [ Preloader, GamePlay, GameOver, GameClear ],
     physics: {
         default: 'arcade',
         arcade: {

@@ -17,12 +17,7 @@
   - [ ] schedule behaviour
   - [ ] take a damage when collided with bullets
   - [ ] die when 0 life point
-- [ ] scene management
-  - [ ] game over fx
-  - [ ] game clear fx
 # DOING
-- [ ] enemy spwan manager
-  - [ ] schedule enemy spawn
 # DONE
 - [x] player behaviour
   - [x] move
@@ -30,11 +25,15 @@
   - [x] take a damage when collided with bullets
   - [x] die when 0 life point
   - [x] collision with enemy
-- [ ] enemy behaviour
+- [x] enemy behaviour
   - [x] move
   - [x] take a damage when collided with bullets
   - [x] die when 0 life point
   - [x] schedule behaviour
   - [x] launch a bullet
-- [ ] scene management
+- [x] scene management
   - [x] create a game play scene
+  - [x] game over fx
+  - [x] game clear fx
+- [x] enemy spwan manager
+  - [x] schedule enemy spawn
