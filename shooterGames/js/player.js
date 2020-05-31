@@ -4,12 +4,14 @@ class Player extends Phaser.Physics.Arcade.Sprite {
     addBullet;
     removeBullet;
     bulletWaitTime;
+    health;
     constructor(scene, x, y, source, frame, addBullet, removeBullet) {
         super(scene, x, y, source, frame);
         this.addBullet = addBullet;
         this.removeBullet = removeBullet;
         this.scene = scene;
         this.bulletWaitTime = PLAYER_BULLET_WAITTIME;
+        this.health = PLAYER_HEALTH_MAX;
         scene.add.existing(this);
         scene.physics.add.existing(this);
         scene.events.on('update', this.update, this);
@@ -19,6 +21,13 @@ class Player extends Phaser.Physics.Arcade.Sprite {
     }
 
     update(_, deltaTime) {
+        if (this.isCremated()) return;
+        if (this.isDead()) {
+            this.tint = 0xff0000;
+            this.disableBody();
+            this.cremate();
+            return;
+        }
         let acceleration = new Phaser.Math.Vector2(0, 0);
 
         this.bulletWaitTime += deltaTime;
@@ -88,5 +97,30 @@ class Player extends Phaser.Physics.Arcade.Sprite {
             this.y = verticalMax;
             this.setVelocityY(0);
         }
+    }
+
+    takeDamage(damage) {
+        this.health -= damage;
+        if (this.health < 0) this.health = 0;
+    }
+
+    cremate() {
+        this.health = -1;
+    }
+
+    isDead() {
+        return this.health === 0;
+    }
+
+    isCremated() {
+        return this.health < 0;
+    }
+
+    isNotAlive() {
+        return this.health <= 0;
+    }
+
+    getPosition() {
+        return {x: this.x, y: this.y};
     }
 }
