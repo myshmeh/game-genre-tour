@@ -1,4 +1,5 @@
 <!-- 
+    theme: one damage, then game over
     user story
     1. start a scene
     2. loop (beat a boss) :
@@ -11,12 +12,22 @@
     3. clear
  -->
 # TODO
-- [ ] boss behaviour
-  - [ ] move
-  - [ ] launch a bullet
-  - [ ] schedule behaviour
-  - [ ] take a damage when collided with bullets
-  - [ ] die when 0 life point
+ - [ ] transitions
+   - [ ] game opening to gameplay
+   - [ ] to game clear
+   - [ ] to game over
+     - [ ] may not be a separate scene (more of overlap of half-transparent screen)
+ - [ ] character params design
+   - [ ] e.g. enemy hp
+ - [ ] stage design
+ - [ ] fx
+   - [ ] player explosion
+   - [ ] enemy explosion
+   - [ ] enemy damaged
+   - [ ] bullet angle
+ - [ ] art
+   - [ ] graphics
+   - [ ] sounds
 # DOING
 # DONE
 - [x] player behaviour
@@ -37,3 +48,9 @@
   - [x] game clear fx
 - [x] enemy spwan manager
   - [x] schedule enemy spawn
+- [x] boss behaviour
+  - [x] move
+  - [x] launch a bullet
+  - [x] schedule behaviour
+  - [x] take a damage when collided with bullets
+  - [x] die when 0 life point

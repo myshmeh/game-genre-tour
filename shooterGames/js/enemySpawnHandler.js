@@ -80,6 +80,21 @@ class EnemySpawnHandler {
                     args.behaviours);
                 this.enemies.add(queen);
                 break;
+            case 'boss':
+                const boss = new Boss(
+                    this.scene,
+                    args.x,
+                    args.y, 
+                    this.bullets.add.bind(this.bullets), 
+                    this.enemies.add.bind(this.enemies),
+                    this.bullets.remove.bind(this.bullets), 
+                    this.enemies.remove.bind(this.enemies),
+                    this.player.getPosition.bind(this.player),
+                    args.behaviours,
+                    args.option1Behaviour,
+                    args.option2Behaviour,);
+                this.enemies.add(boss);
+                break;
             default:
                 return false;
         }

@@ -15,7 +15,7 @@ class GamePlay extends Phaser.Scene {
         this.player = new Player(this, WIDTH*0.5, HEIGHT*0.8, 'sprites', 5, this.playerBullets.add.bind(this.playerBullets), this.playerBullets.remove.bind(this.playerBullets));
         this.enemyBullets = this.physics.add.group();
         this.enemies = this.physics.add.group();
-        this.enemySpawnHandler = new EnemySpawnHandler(this, this.enemies, this.player, this.enemyBullets, ENEMY_SPAWN_SCHEDULE);
+        this.enemySpawnHandler = new EnemySpawnHandler(this, this.enemies, this.player, this.enemyBullets, ENEMY_SPAWN_SCHEDULE2);
 
         const overlapEnemyAndBullet = (enemy, bullet) => {
             this.playerBullets.remove(bullet, true, true);

@@ -51,12 +51,6 @@ class Enemy extends Phaser.Physics.Arcade.Sprite {
         console.log('please override to launch a bullet here');
     }
 
-    launchBulletTracking(bulletParams) {
-        const bullet = new BulletTracking(this.scene, this.x, this.y, 'sprites', 0,
-            bulletParams.getPlayerPosition, bulletParams.speed, this.removeBullet, bulletParams.power);
-        this.addBullet(bullet);
-    }
-
     move(coord) {
         this.setVelocity(coord.x, coord.y);
     }

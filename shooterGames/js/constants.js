@@ -9,13 +9,16 @@ const PLAYER_CONSTRAIN_HMAX = WIDTH;
 const PLAYER_CONSTRAIN_VMIN = HEIGHT * 0.5;
 const PLAYER_CONSTRAIN_VMAX = HEIGHT;
 const PLAYER_BULLET_WAITTIME = 100;
-const PLAYER_HEALTH_MAX = 1;
+const PLAYER_HEALTH_MAX = 1000000000000000;
 
 const BULLET_SPEED_VECTOR = {x: 0, y: -500};
 
 const ENEMY_HEALTH_MAX = 1;
 const ENEMY_BODY_POWER = 1;
 const ENEMY_SPEED_NORMAL = 100;
+const OPTION_LAUNCH_INTERVAL = 100;
+const OPTION_RADIAN_STEP = Math.PI * 0.23;
+const OPTION_BULLET_SPEED = 40;
 
 const ENEMY_BEHAVIOUR_FORTH_BACK = [
     {time: 0, action: 'move', args: {x: 0, y: ENEMY_SPEED_NORMAL}},
@@ -42,6 +45,56 @@ const ENEMY_BEHAVIOUR_LEFT_DOWN = [
     {time: 1500, action: 'move', args: {x: -2*ENEMY_SPEED_NORMAL/Math.sqrt(5), y: ENEMY_SPEED_NORMAL/Math.sqrt(5)}},
     {time: 3000, action: 'move', args: {x: -4*ENEMY_SPEED_NORMAL/Math.sqrt(17), y: ENEMY_SPEED_NORMAL/Math.sqrt(17)}},
     {time: 3500, action: 'launch', args: null},
+];
+const ENEMY_BEHAVIOUR_BOSS = [
+    {time: 1000, action: 'move', args: {x: 0, y: 0}},
+    {time: 1500, action: 'launchAiming', args: null},
+    {time: 2000, action: 'launchAiming', args: null},
+    {time: 2500, action: 'launchAiming', args: null},
+    {time: 3000, action: 'launchAiming', args: null},
+    {time: 3500, action: 'launchAiming', args: null},
+    {time: 4000, action: 'launchAiming', args: null},
+    {time: 4500, action: 'launchAiming', args: null},
+    {time: 5000, action: 'launchAiming', args: null},
+    {time: 5500, action: 'launchAiming', args: null},
+    {time: 6000, action: 'launchAiming', args: null},
+    {time: 6500, action: 'launchAiming', args: null},
+    {time: 7000, action: 'launchAiming', args: null},
+    {time: 7500, action: 'launchAiming', args: null},
+    {time: 8000, action: 'launchAiming', args: null},
+    {time: 8500, action: 'launchAiming', args: null},
+    {time: 9000, action: 'launchAiming', args: null},
+    {time: 9500, action: 'launchAiming', args: null},
+    {time: 10000, action: 'launchAiming', args: null},
+    {time: 10500, action: 'launchAiming', args: null},
+    {time: 11000, action: 'launchAiming', args: null},
+    {time: 11500, action: 'launchAiming', args: null},
+    {time: 12000, action: 'launchAiming', args: null},
+    {time: 12500, action: 'launchAiming', args: null},
+    {time: 13500, action: 'option', args: null},
+];
+const ENEMY_BEHAVIOUR_OPTION1 = [
+    {time: 0, action: 'move', args: {x: -100, y: ENEMY_SPEED_NORMAL}},
+    {time: 1000, action: 'move', args: {x: 0, y: 0}},
+    {time: 2000, action: 'launch', args: null},
+];
+const ENEMY_BEHAVIOUR_OPTION2 = [
+    {time: 0, action: 'move', args: {x: 100, y: ENEMY_SPEED_NORMAL * 2}},
+    {time: 1000, action: 'move', args: {x: 0, y: 0}},
+    {time: 2000, action: 'launch', args: null},
+];
+const ENEMY_SPAWN_SCHEDULE2 = [
+    {
+        time: 500,
+        type: 'boss',
+        args: {
+            x: WIDTH * 0.5,
+            y: HEIGHT * 0.15,
+            behaviours: ENEMY_BEHAVIOUR_BOSS,
+            option1Behaviour: ENEMY_BEHAVIOUR_OPTION1,
+            option2Behaviour: ENEMY_BEHAVIOUR_OPTION2
+        },
+    },
 ];
 const ENEMY_SPAWN_SCHEDULE = [
     {
