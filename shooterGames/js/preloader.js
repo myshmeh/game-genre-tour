@@ -16,6 +16,6 @@ class Preloader extends Phaser.Scene {
             key: 'playerIdle',
             frames: [{key: 'sprites', frame: 4}],
         });
-        this.scene.start('gameplay');
+        this.scene.start('start');
     }
 }

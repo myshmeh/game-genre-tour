@@ -3,7 +3,7 @@ const config = {
     height: HEIGHT,
     backgroundColor: '#333',
     pixelArt: true,
-    scene: [ Preloader, GamePlay, GameOver, GameClear ],
+    scene: [ Preloader, Start, GamePlay, GameOver, GameClear ],
     physics: {
         default: 'arcade',
         arcade: {
@@ -17,4 +17,4 @@ const config = {
     },
 };
 
-const game = new Phaser.Game(config);
+let game = new Phaser.Game(config);

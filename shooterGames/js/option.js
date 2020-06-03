@@ -9,6 +9,7 @@ class BossOption extends Enemy {
         this.launchInterval = 0;
         this.radian = 0;
         this.speed = OPTION_BULLET_SPEED;
+        this.health = OPTION_HEALTH_MAX;
     }
 
     update(_, deltaTime) {

@@ -18,12 +18,13 @@ class Player extends Phaser.Physics.Arcade.Sprite {
         this.inputs = scene.input.keyboard.addKeys('W,A,S,D,J,K,L');
         this.play('playerIdle');
         this.body.maxSpeed = PLAYER_SPEED_MAX;
+        this.body.setSize(PLAYER_COLLISION_W, PLAYER_COLLISION_H);
     }
 
     update(_, deltaTime) {
         if (this.isCremated()) return;
         if (this.isDead()) {
-            this.tint = 0xff0000;
+            this.alpha = 0;
             this.disableBody();
             this.cremate();
             return;

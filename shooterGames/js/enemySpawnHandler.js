@@ -100,4 +100,8 @@ class EnemySpawnHandler {
         }
         return true;
     }
+
+    isSpawnedAll() {
+        return this.spawnSchedule.length === Object.keys(this.spawned).length;
+    }
 }

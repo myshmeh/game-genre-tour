@@ -1,6 +1,8 @@
 <!-- 
-    theme: one damage, then game over
-    user story
+    theme: JUNK WITH DIGNITY
+      player rides on a beat up old spaceship that's been used for a long time.
+      if player takes a damage, player dies.
+    user story:
     1. start a scene
     2. loop (beat a boss) :
        1. dodge enemy bullets
@@ -10,25 +12,27 @@
        4. if (dead)
           1. end game
     3. clear
+    note:
+      circular bullet please
  -->
 # TODO
- - [ ] transitions
-   - [ ] game opening to gameplay
-   - [ ] to game clear
-   - [ ] to game over
-     - [ ] may not be a separate scene (more of overlap of half-transparent screen)
  - [ ] character params design
-   - [ ] e.g. enemy hp
+   - [ ] enemy hp
+   - [ ] player collision box
+   - [ ] enemy collision box
  - [ ] stage design
- - [ ] fx
-   - [ ] player explosion
-   - [ ] enemy explosion
-   - [ ] enemy damaged
-   - [ ] bullet angle
- - [ ] art
-   - [ ] graphics
-   - [ ] sounds
+ - [ ] ux
+   - [ ] how to play (maybe in the start scene phrase?)
+   - [ ] story telling in start scene
 # DOING
+ - [ ] art
+   - [ ] font
+   - [ ] graphics (incl. start scene view, game over/clear)
+     - [ ] design
+     - [ ] implement
+   - [ ] sounds (bgm, sound fx)
+     - [ ] design
+     - [ ] implement
 # DONE
 - [x] player behaviour
   - [x] move
@@ -54,3 +58,11 @@
   - [x] schedule behaviour
   - [x] take a damage when collided with bullets
   - [x] die when 0 life point
+- [x] transitions
+   - [x] game opening to gameplay
+   - [x] to game clear/over
+     - [x] may not be a separate scene (more of overlap of half-transparent screen)
+       - got a bug not being able to restart/start the gameplay scene again.. reloaded the webpage instead
+ - [x] fx
+   - [x] player explosion
+   - [x] enemy explosion

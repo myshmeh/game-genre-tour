@@ -85,6 +85,7 @@ class Enemy extends Phaser.Physics.Arcade.Sprite {
     }
 
     isOutOfBoundary(offsetX = 0, offsetY = 0) {
+        if (!this.body) return false;
         return this.x < -this.body.halfWidth - offsetX ||
             this.x > WIDTH + this.body.halfWidth + offsetX ||
             this.y < -this.body.halfHeight - offsetY ||

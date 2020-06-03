@@ -14,6 +14,7 @@ class Boss extends Enemy {
         this.option1Behaviour = option1Behaviour;
         this.option2Behaviour = option2Behaviour;
         this.addEnemy = addEnemy;
+        this.health = BOSS_HEALTH_MAX;
     }
 
     behave(){

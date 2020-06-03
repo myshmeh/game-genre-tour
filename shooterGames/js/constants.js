@@ -1,5 +1,24 @@
+const TITLE_TEXT = 'SKILL WITH DIGNITY';
+const TITLE_PHRASES = [
+    "I HAVE A REAL SKIL\nWITH 10 YEAR EXPERIENCE",
+    "NEVER GET HIT\nBY THEIR DUMB BULLETS",
+    "AIN'T NEED\nANY FANCY PIECES OF SHIT",
+    "JUST [W][A][S][D] TO MOVE",
+    "AND [L] TO SHOOT",
+    "THAT'S ALL I NEED",
+    "NOW, LET'S BEAT'EM ALL",
+];
+const GAME_OVER_TITLE_TEXT = 'DEAD WITH DIGNITY';
+const GAME_OVER_RETRY_TEXT = '[R]ETRY';
+const GAME_OVER_QUIT_TEXT = '[Q]UIT';
+const GAME_OVER_RETRY_KEY = 'R';
+const GAME_OVER_QUIT_KEY = 'Q';
+const GAME_CLEAR_TITLE_TEXT = 'WIN WITH DIGNITY';
+const GAME_CLEAR_SUBTITLE_TEXT = 'THANK YOU FOR PLAYING!';
+
 const WIDTH = 640;
 const HEIGHT = 480;
+const Z_INDEX_DEEP = 99999;
 
 const PLAYER_ACC = 300;
 const PLAYER_SPEED_MAX = 150;
@@ -9,7 +28,9 @@ const PLAYER_CONSTRAIN_HMAX = WIDTH;
 const PLAYER_CONSTRAIN_VMIN = HEIGHT * 0.5;
 const PLAYER_CONSTRAIN_VMAX = HEIGHT;
 const PLAYER_BULLET_WAITTIME = 100;
-const PLAYER_HEALTH_MAX = 1000000000000000;
+const PLAYER_HEALTH_MAX = 1;
+const PLAYER_COLLISION_W = 10;
+const PLAYER_COLLISION_H = 16;
 
 const BULLET_SPEED_VECTOR = {x: 0, y: -500};
 
@@ -19,6 +40,8 @@ const ENEMY_SPEED_NORMAL = 100;
 const OPTION_LAUNCH_INTERVAL = 100;
 const OPTION_RADIAN_STEP = Math.PI * 0.23;
 const OPTION_BULLET_SPEED = 40;
+const BOSS_HEALTH_MAX = 100;
+const OPTION_HEALTH_MAX = 10;
 
 const ENEMY_BEHAVIOUR_FORTH_BACK = [
     {time: 0, action: 'move', args: {x: 0, y: ENEMY_SPEED_NORMAL}},
@@ -231,6 +254,17 @@ const ENEMY_SPAWN_SCHEDULE = [
             y: 0,
             behaviours: ENEMY_BEHAVIOUR_LEFT_DOWN,
         }
-    }
+    },
+    {
+        time: 25000,
+        type: 'boss',
+        args: {
+            x: WIDTH * 0.5,
+            y: HEIGHT * 0.15,
+            behaviours: ENEMY_BEHAVIOUR_BOSS,
+            option1Behaviour: ENEMY_BEHAVIOUR_OPTION1,
+            option2Behaviour: ENEMY_BEHAVIOUR_OPTION2
+        },
+    },
 ];
 Object.freeze(ENEMY_SPAWN_SCHEDULE);
