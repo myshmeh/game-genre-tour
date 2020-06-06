@@ -27,6 +27,8 @@ class Player extends Phaser.Physics.Arcade.Sprite {
             this.alpha = 0;
             this.disableBody();
             this.cremate();
+            this.scene.sound.volume = 1;
+            this.scene.sound.play('explode');
             return;
         }
         let acceleration = new Phaser.Math.Vector2(0, 0);

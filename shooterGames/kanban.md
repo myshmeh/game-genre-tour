@@ -21,18 +21,18 @@
    - [ ] player collision box
    - [ ] enemy collision box
  - [ ] stage design
- - [ ] ux
-   - [ ] how to play (maybe in the start scene phrase?)
-   - [ ] story telling in start scene
 # DOING
  - [ ] art
-   - [ ] font
    - [ ] graphics (incl. start scene view, game over/clear)
      - [ ] design
      - [ ] implement
    - [ ] sounds (bgm, sound fx)
      - [ ] design
+       - [x] explode
+       - [ ] music
      - [ ] implement
+       - [x] explode
+       - [x] music
 # DONE
 - [x] player behaviour
   - [x] move
@@ -59,10 +59,12 @@
   - [x] take a damage when collided with bullets
   - [x] die when 0 life point
 - [x] transitions
-   - [x] game opening to gameplay
-   - [x] to game clear/over
-     - [x] may not be a separate scene (more of overlap of half-transparent screen)
-       - got a bug not being able to restart/start the gameplay scene again.. reloaded the webpage instead
- - [x] fx
-   - [x] player explosion
-   - [x] enemy explosion
+  - [x] game opening to gameplay
+  - [x] to game clear/over
+    - [x] may not be a separate scene (more of overlap of half-transparent screen)
+      - got a bug not being able to restart/start the gameplay scene again.. reloaded the webpage instead
+- [x] fx
+  - [x] player explosion
+  - [x] enemy explosion
+- [ ] art
+  - [x] font

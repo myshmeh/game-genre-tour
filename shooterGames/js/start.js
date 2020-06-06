@@ -3,6 +3,7 @@ class Start extends Phaser.Scene {
     text;
     phraseIndex;
     rect;
+    music;
     constructor() {
         super({
             key: 'start',
@@ -12,11 +13,13 @@ class Start extends Phaser.Scene {
     create() {
         this.phraseIndex = -1;
         this.title = this.add.text(WIDTH * 0.5, HEIGHT * 0.45, TITLE_TEXT, {
+            fontFamily: FONTS.HANDLEE,
             fontSize: '48px',
             align: 'center'
         }).setOrigin(0.5);
         console.log(this.title.alpha);
         this.text = this.add.text(WIDTH * 0.5, HEIGHT * 0.55, '', {
+            fontFamily: FONTS.HANDLEE,
             fontSize: '28px',
             align: 'center'
         }).setOrigin(0.5);
@@ -33,10 +36,20 @@ class Start extends Phaser.Scene {
         this.rect = this.add.image(0, 0, 'sprites', 5).setScale(WIDTH/32, HEIGHT/32).setOrigin(0);
         this.rect.setTint(0x222222);
         this.fadeOut(this.rect, 0);
+
+        this.music = this.sound.add('themeSimple', {
+            detune: 0,
+            volume: 0.25,
+            loop: true,
+        });
+        this.music.play();
     }
 
     startScene(sceneName) {
-        this.fadeIn(this.rect, 0, 2000, () => this.scene.start(sceneName));
+        this.fadeIn(this.rect, 0, 2000, () => {
+            this.music.stop();
+            this.scene.start(sceneName);
+        });
     }
 
     updatePhrase(phrase) {
