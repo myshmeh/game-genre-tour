@@ -2,7 +2,7 @@
 https://en.wikipedia.org/wiki/List_of_video_game_genres#Simulation
 ## Action
 - [ ] Platform games
-- [ ] Shooter games
+- [x] Shooter games
 - [ ] Fighting games
 - [ ] Beat 'em up games
 - [ ] Stealth game
