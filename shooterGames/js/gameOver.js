@@ -25,5 +25,9 @@ class GameOver extends Phaser.Scene {
             volume: 0.25,
             loop: true,
         });
+
+        for(let i=0; i<STAR_NUM; i++) {
+            const star = new Star(this, Phaser.Math.RND.between(0, WIDTH), Phaser.Math.RND.between(0, HEIGHT), Math.random() * 0.5);
+        }
     }
 }

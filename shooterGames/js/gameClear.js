@@ -23,5 +23,11 @@ class GameClear extends Phaser.Scene {
             volume: 0.25,
             loop: true,
         });
+
+        for(let i=0; i<STAR_NUM; i++) {
+            const star = new Star(this, Phaser.Math.RND.between(0, WIDTH), Phaser.Math.RND.between(0, HEIGHT), Math.random() * 0.5);
+        }
+
+        this.add.image(WIDTH * 0.5, HEIGHT * 0.65, 'spaceships').setScale(4).setDepth(-1);
     }
 }

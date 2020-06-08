@@ -1,14 +1,14 @@
 const config = {
     width: WIDTH,
     height: HEIGHT,
-    backgroundColor: '#333',
+    backgroundColor: '#111',
     pixelArt: true,
     scene: [ Preloader, Start, GamePlay, GameOver, GameClear ],
     physics: {
         default: 'arcade',
         arcade: {
             gravity: 0
-            , debug: true,
+            // , debug: true,
         }
     },
     scale: {

@@ -7,7 +7,7 @@ class Boss extends Enemy {
     option2Behaviour;
     addEnemy;
     constructor(scene, x, y, addBullet, addEnemy, removeBullet, removeSelf, getPlayerPosition, behaviours, option1Behaviour, option2Behaviour){
-        super(scene, x, y, 'sprites', 6, addBullet, removeBullet, removeSelf, behaviours);
+        super(scene, x, y, 'boss', 0, addBullet, removeBullet, removeSelf, behaviours);
         this.getPlayerPosition = getPlayerPosition;
         this.speed = 100;
         this.vSpeed = this.speed;
@@ -15,6 +15,7 @@ class Boss extends Enemy {
         this.option2Behaviour = option2Behaviour;
         this.addEnemy = addEnemy;
         this.health = BOSS_HEALTH_MAX;
+        this.body.setSize(BOSS_COLLISION_W, BOSS_COLLISION_H);
     }
 
     behave(){
@@ -41,13 +42,13 @@ class Boss extends Enemy {
     }
 
     launch() {
-        const bullet = new Bullet(this.scene, this.x, this.y, 'sprites', 0, 
+        const bullet = new Bullet(this.scene, this.x, this.y, 'bullets', 1, 
             {x: 0, y: this.vSpeed}, this.removeBullet, this.power);
         this.addBullet(bullet);
     }
     
     launchAiming() {
-        const bullet = new BulletAimingPlayer(this.scene, this.x, this.y, 'sprites', 2,
+        const bullet = new BulletAimingPlayer(this.scene, this.x, this.y, 'bullets', 2,
             this.getPlayerPosition, this.speed, this.removeBullet, this.power);
         this.addBullet(bullet);
     }

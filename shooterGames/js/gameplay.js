@@ -15,7 +15,7 @@ class GamePlay extends Phaser.Scene {
 
     create() {
         this.playerBullets = this.physics.add.group();
-        this.player = new Player(this, WIDTH*0.5, HEIGHT*0.8, 'sprites', 5, this.playerBullets.add.bind(this.playerBullets), this.playerBullets.remove.bind(this.playerBullets));
+        this.player = new Player(this, WIDTH*0.5, HEIGHT*0.8, 'spaceships', 0, this.playerBullets.add.bind(this.playerBullets), this.playerBullets.remove.bind(this.playerBullets));
         this.enemyBullets = this.physics.add.group();
         this.enemies = this.physics.add.group();
         this.enemySpawnHandler = new EnemySpawnHandler(this, this.enemies, this.player, this.enemyBullets, ENEMY_SPAWN_SCHEDULE);
@@ -63,6 +63,10 @@ class GamePlay extends Phaser.Scene {
         const rect = this.add.image(0, 0, 'sprites', 5).setScale(WIDTH/32, HEIGHT/32).setOrigin(0);
         rect.setTint(0x222222);
         this.fadeOut(rect, 0, 1000, () => rect.destroy());
+
+        for(let i=0; i<STAR_NUM; i++) {
+            const star = new Star(this, Phaser.Math.RND.between(0, WIDTH), Phaser.Math.RND.between(0, HEIGHT), Math.random() * 0.25);
+        }
 
         this.music = this.sound.add('theme', {
             detune: 0,

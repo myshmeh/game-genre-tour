@@ -19,6 +19,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
         this.play('playerIdle');
         this.body.maxSpeed = PLAYER_SPEED_MAX;
         this.body.setSize(PLAYER_COLLISION_W, PLAYER_COLLISION_H);
+        this.setDepth(PLAYER_Z_INDEX);
     }
 
     update(_, deltaTime) {
@@ -62,8 +63,8 @@ class Player extends Phaser.Physics.Arcade.Sprite {
                 this.scene,
                 this.x,
                 this.y,
-                'sprites',
-                3,
+                'bullets',
+                0,
                 BULLET_SPEED_VECTOR,
                 this.removeBullet,
             );

@@ -24,6 +24,15 @@ class Preloader extends Phaser.Scene {
         this.load.spritesheet('sprites', 'img/tmp_sprites.png', {
             frameWidth: 32, frameHeight: 32,
         });
+        this.load.image('boss', 'img/boss.png');
+        this.load.image('option', 'img/option.png');
+        this.load.image('star', 'img/star.png');
+        this.load.spritesheet('bullets', 'img/bullets.png', {
+            frameWidth: 32, frameHeight: 32,
+        });
+        this.load.spritesheet('spaceships', 'img/spaceships.png', {
+            frameWidth: 32, frameHeight: 32,
+        });
         this.load.audio('explode', ['sounds/Explosion48.wav']);
         this.load.audio('theme', ['sounds/theme.mp3']);
         this.load.audio('themeSimple', ['sounds/theme_simple.mp3']);
@@ -32,7 +41,7 @@ class Preloader extends Phaser.Scene {
     create() {
         this.anims.create({
             key: 'playerIdle',
-            frames: [{key: 'sprites', frame: 4}],
+            frames: [{key: 'spaceships', frame: 0}],
         });
         this.scene.start('start');
     }

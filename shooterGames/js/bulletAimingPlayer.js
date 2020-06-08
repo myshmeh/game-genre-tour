@@ -8,7 +8,8 @@ class BulletAimingPlayer extends Phaser.Physics.Arcade.Sprite {
         this.removeSelf = removeSelf;
         this.getPlayerPosition = getPlayerPosition;
         this.power = power;
-        this.setScale(0.2, 0.5);
+        this.setScale(0.2, 0.2);
+        this.setOrigin(0.3);
         scene.add.existing(this);
         scene.physics.add.existing(this);
         scene.events.on('update', this.update, this);

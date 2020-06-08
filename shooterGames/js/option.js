@@ -4,7 +4,7 @@ class BossOption extends Enemy {
     radian;
     speed;
     constructor(scene, x, y, addBullet, removeBullet, removeSelf, behaviours){
-        super(scene, x, y, 'sprites', 4, addBullet, removeBullet, removeSelf, behaviours);
+        super(scene, x, y, 'option', 0, addBullet, removeBullet, removeSelf, behaviours);
         this.safetyUnlocked = false;
         this.launchInterval = 0;
         this.radian = 0;
@@ -22,7 +22,7 @@ class BossOption extends Enemy {
         this.radian += OPTION_RADIAN_STEP;
         const xVel = Math.cos(this.radian) * this.speed;
         const yVel = Math.sin(this.radian) * this.speed;
-        const bullet = new Bullet(this.scene, this.x, this.y, 'sprites', 0, 
+        const bullet = new Bullet(this.scene, this.x, this.y, 'bullets', 1, 
             {x: xVel, y: yVel}, this.removeBullet, this.power);
         this.addBullet(bullet);
     }

@@ -35,7 +35,8 @@ const PLAYER_CONSTRAIN_VMAX = HEIGHT;
 const PLAYER_BULLET_WAITTIME = 100;
 const PLAYER_HEALTH_MAX = 1;
 const PLAYER_COLLISION_W = 10;
-const PLAYER_COLLISION_H = 16;
+const PLAYER_COLLISION_H = 10;
+const PLAYER_Z_INDEX = 10;
 
 const BULLET_SPEED_VECTOR = {x: 0, y: -500};
 
@@ -47,6 +48,12 @@ const OPTION_RADIAN_STEP = Math.PI * 0.23;
 const OPTION_BULLET_SPEED = 40;
 const BOSS_HEALTH_MAX = 100;
 const OPTION_HEALTH_MAX = 10;
+const ENEMY_Z_INDEX = 10;
+const BOSS_COLLISION_W = 60;
+const BOSS_COLLISION_H = 36;
+
+const STAR_SPEED = 100;
+const STAR_NUM = 20;
 
 const ENEMY_BEHAVIOUR_FORTH_BACK = [
     {time: 0, action: 'move', args: {x: 0, y: ENEMY_SPEED_NORMAL}},
