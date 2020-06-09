@@ -8,6 +8,7 @@ class Queen extends Enemy {
         this.getPlayerPosition = getPlayerPosition;
         this.power = 1;
         this.speed = 75;
+        this.health = QUEEN_HEALTH_MAX;
     }
 
     launch() {

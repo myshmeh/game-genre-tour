@@ -8,6 +8,7 @@ class Bishop extends Enemy {
         this.getPlayerPosition = getPlayerPosition;
         this.power = 1;
         this.speed = 75;
+        this.health = BISHOP_HEALTH_MAX;
     }
 
     launch() {
